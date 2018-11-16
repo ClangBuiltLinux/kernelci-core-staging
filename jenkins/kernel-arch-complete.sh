@@ -230,5 +230,6 @@ if [ -f ${BASEDIR}/arm64.done ] && [ -f ${BASEDIR}/arm.done ] && [ -f ${BASEDIR}
         if [ "$BRANCH" == "kernelci-media" ]; then
             curl -X POST -H "Authorization: $EMAIL_AUTH_TOKEN" -H "Content-Type: application/json" -d '{"job": "'$TREE_NAME'", "kernel": "'$GIT_DESCRIBE'", "git_branch": "'$BRANCH'",  "report_type": "test", "plans": ["v4l2"], "send_to": ["guillaume.tucker@collabora.com", "ana.guerrero@collabora.com"], "format": ["txt", "html"], "delay": 2700}' ${API}/send
         fi
+        curl -X POST -H "Authorization: $EMAIL_AUTH_TOKEN" -H "Content-Type: application/json" -d '{"job": "'$TREE_NAME'", "kernel": "'$GIT_DESCRIBE'", "git_branch": "'$BRANCH'",  "report_type": "test", "plans": ["igt"], "send_to": ["guillaume.tucker@collabora.com", "ana.guerrero@collabora.com"], "format": ["txt", "html"], "delay": 3600}' ${API}/send
     fi
 fi
